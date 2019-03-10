@@ -2,8 +2,13 @@
 // For basic architecture see http://w2.mat.ucsb.edu/240/A/2017/04/26/supercollider.html
 (
 SynthDef("Moog",{
-    arg osc1Shape = 0, osc2Shape = 2, osc1Level = 0.5, osc2Level = 0.5, volume = 0.5,
-        filterCutoff = 2000, filterResonance = 0, filterEnvAmt = 0,
+    arg osc1Shape = 0, osc2Shape = 2,  // 0 = saw, 1 = sin, 2 = square
+        osc1Level = 0.5, osc2Level = 0.5, volume = 0.5,  // range: 0-1
+        filterCutoff = 2000, filterResonance = 0,  // cutoff: 20-20000, resonance: 0-4
+        filterEnvAmt = 0,  // range should be about -5 to 5, but negative values won't work correctly yet
+                           // filterCutoff * filterEnvAmt shouldn't go above 20000 (TODO clip it at the 20000 upper bound)
+        // Envelope ranges: 0-10 for attack, decay, release (in seconds) but the wait times in play.sc should be modified accordingly
+        //                  sustain is 0-1
         ampAttack = 0.1, ampDecay = 0.1, ampSustain = 0.7, ampRelease = 0.2,
         filterAttack = 0.1, filterDecay = 0.1, filterSustain = 0.9, filterRelease = 0.2,
         gate = 1, freq = 440;
