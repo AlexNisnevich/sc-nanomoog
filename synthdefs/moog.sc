@@ -6,7 +6,8 @@ SynthDef("Moog",{
         osc1Level = 0.5, osc2Level = 0.5, volume = 0.5,  // range: 0-1
         filterCutoff = 2000, filterResonance = 0,  // cutoff: 20-20000, resonance: 0-4
         filterEnvAmt = 0,  // range should be about -5 to 5, but negative values won't work correctly yet
-                           // filterCutoff * filterEnvAmt shouldn't go above 20000 (TODO clip it at the 20000 upper bound)
+                           // in general this isn't right yet because it should scale the cutoff logarithmically but it's a little tricky to model exactly
+                           // e.g. on my Sub37, a cutoff of 500 Hz will go up to ~1.2 KHz when EnvAmt = 1 and down to ~320 Hz when EnvAmt = -1
         // Envelope ranges: 0-10 for attack, decay, release (in seconds) but the wait times in play.sc should be modified accordingly
         //                  sustain is 0-1
         ampAttack = 0.1, ampDecay = 0.1, ampSustain = 0.7, ampRelease = 0.2,
@@ -28,6 +29,7 @@ SynthDef("Moog",{
 
     // TODO filter and amp modulation
     // TODO the filter cutoff (modulated by envelope) formula isn't quite right
+    // TODO clip filter amount when it goes above 20 kHz
     var filter = MoogFF.ar(mixer, filterCutoff * (1 + filterEnv), filterResonance);
     var amp = filter * ampEnv;
 
