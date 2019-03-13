@@ -1,5 +1,5 @@
 // To run:
-// /Applications/SuperCollider.app/Contents/MacOS/sclang -d . play.sc
+// /Applications/SuperCollider.app/Contents/MacOS/sclang play.sc
 // play ./out.wav
 (
 // Parameter values go here. See synth def below for parameter ranges and notes.
