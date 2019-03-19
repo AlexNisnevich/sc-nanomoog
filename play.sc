@@ -9,10 +9,12 @@ var parameters = [
 	volume: 1,
 	osc1Shape: 2, // 0 = saw, 1 = sine, 2 = square
 	osc1Level: 0.5,
+	osc2Shape: 2,
 	osc2Level: 0,
 	filterCutoff: 2000,
 	filterResonance: 3.0,
 	filterEnvAmt: 2
+	// TODO: It looks like there are other params that are not here?
 ];
 
 // Adapted from https://superdupercollider.blogspot.com/2009/02/this-is-blog-about-supercollider.html
