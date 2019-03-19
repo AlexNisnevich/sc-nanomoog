@@ -27,7 +27,7 @@ var parameters = [
         osc2Level: %f,
         filterCutoff: %d,
         filterResonance: %f,
-        filterEnvAmt: %d
+        filterEnvAmt: %f
         // TODO: It looks like there are other params that are not here?
 ];"""
 
