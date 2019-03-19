@@ -4,16 +4,7 @@
 (
 // Parameter values go here. See synth def below for parameter ranges and notes.
 // (Any unspecified parameters will use the default value specified in the synth def.)
-var parameters = [
-	freq: 440,
-	volume: 1,
-	osc1Shape: 2, // 0 = saw, 1 = sine, 2 = square
-	osc1Level: 0.5,
-	osc2Level: 0,
-	filterCutoff: 2000,
-	filterResonance: 3.0,
-	filterEnvAmt: 2
-];
+%s
 
 // Adapted from https://superdupercollider.blogspot.com/2009/02/this-is-blog-about-supercollider.html
 // For basic architecture see http://w2.mat.ucsb.edu/240/A/2017/04/26/supercollider.html
@@ -58,7 +49,7 @@ s.waitForBoot {
 		var synth = Synth("Moog", parameters);
 
         s.sync;
-        s.record("./out.wav".standardizePath, 0, 2);
+        s.record("./%s".standardizePath, 0, 2);
 
 		1.wait;  // TODO this should be attack time + decay time + hold time
 		synth.set('gate', 0);
