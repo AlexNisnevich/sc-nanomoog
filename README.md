@@ -5,7 +5,12 @@ runnable from command line.
 
 Install [SuperCollider](https://supercollider.github.io/download).
 
-To record to `out.wav`, set parameters in `play.sc` and run:
+First, generate a random synth:
 ```
-path/to/sclang play.sc
+./autogenerate SEED
+```
+
+Then, generate a WAV from the synth:
+```
+path/to/sclang SEED.sc
 ```
