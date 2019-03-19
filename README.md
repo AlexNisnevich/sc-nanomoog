@@ -14,3 +14,5 @@ Then, generate a WAV from the synth:
 ```
 path/to/sclang SEED.sc
 ```
+(Is it possible to disable the output, and thus render faster than
+realtime?)
